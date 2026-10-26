@@ -1,0 +1,5 @@
+.venv
+.vscode
+vial-labeler-participants-v1/__pycache__
+vial-labeler-participants-v1/label-files
+vial-labeler-participants-v1/reviews
