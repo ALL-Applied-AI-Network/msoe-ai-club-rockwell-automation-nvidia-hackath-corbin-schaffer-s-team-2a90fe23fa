@@ -67,7 +67,28 @@ Run with Isaac Sim's Python (`python.sh` in the Isaac Sim install folder):
 # a single station file
 <isaac-sim>/python.sh tools/render_example.py --camera FillCam --frame 301 \
     --stage stations/fill_station/fill_station.usda --out fill_station.png
+# 20 CapSealCam images with randomized vial counts and placements, up to 60
+<isaac-sim>/python.sh tools/render_example.py --camera CapSealCam --randomize-trays \
+    --variations 20 --min-vials 1 --max-vials 60 --broken-lean-degrees 0 \
+    --seed 42 --out cap_seal.png
 ```
+For multiple variations, the output is numbered (`cap_seal_0001.png`, etc.). The randomizer
+uses the 35 existing vial assemblies (including existing uncapped examples) and creates copies of
+those assemblies as needed to support all 60 tray slots. It hides unused vials and places selected
+vials into distinct slots across both trays. The camera stays fixed. CapSeal renders are
+lens-corrected automatically.
+Change `--seed` for a different reproducible sequence; set `--min-vials` and `--max-vials` to
+control the randomized vial count. To fill both trays completely in every image, set both counts to
+60, for example `--min-vials 60 --max-vials 60`.
+Existing `S`-series and any other strongly tilted vial variants are kept, but their original steep
+tilt is replaced by an upright pose by default so they do not intrude into adjacent vial slots.
+All randomized vial variants are placed upright, preserving their yaw; caps follow the vial's
+local transform, keeping them seated when a vial is repositioned or straightened. Use
+`--broken-lean-degrees` to add a small randomized lean (allowed range: 0–3 degrees).
+Caps on non-good (`S`-series or strongly tilted) vials additionally receive independent
+randomized 0–360° rotations around X, Y, and Z; caps on good vials remain aligned.
+Rotated caps are lifted as needed so their bounds do not extend below the top of their vial.
+
 `apply_lens.py` can also be run on its own, with any Python that has `numpy` and `opencv-python`:
 ```bash
 python tools/apply_lens.py cap_seal_render_768x576.png cameras/CapSealCam.json cap_seal_final.png
