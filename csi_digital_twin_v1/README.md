@@ -89,6 +89,42 @@ Caps on non-good (`S`-series or strongly tilted) vials additionally receive inde
 randomized 0–360° rotations around X, Y, and Z; caps on good vials remain aligned.
 Rotated caps are lifted as needed so their bounds do not extend below the top of their vial.
 
+## Generate vial-labeler review batches
+`tools/generate_review_batches.py` renders randomized CapSeal images, keeps the lens distortion
+applied by the renderer, and creates a vial-labeler review page for each image:
+```bash
+python tools/generate_review_batches.py \
+    --batches 5 --images-per-batch 20 \
+    --output ../capseal_review_batches --seed 42
+```
+By default, every image fills all 60 tray slots. Use `--min-vials` and `--max-vials` to vary
+occupancy. The output path must not already exist. Each numbered batch contains `images/` and
+`html/`; for example:
+```
+capseal_review_batches/
+  001/
+    images/cap_seal_0001.png
+    html/cap_seal_0001.html
+    html/cap_seal_0001_review/
+      index.html
+      labels.json
+      ...
+```
+The named HTML file is a portable copy of vial-labeler's `index.html`; the companion review
+directory retains its labels, crops, and other review files.
+
+The renderer's lens-corrected 640 × 480 image is enlarged proportionally with Lanczos resampling
+to 1920 × 1440, then cropped to 1920 × 1080 from the bottom-right. This removes the top 120
+source-image rows while preserving the original proportions and the tray contents. The batch
+tool derives a CapSeal-specific vial-labeler calibration from the tray USD and camera calibration;
+it does not reuse the unrelated reference-photo alignment profiles.
+
+The default Isaac Sim executable is
+`<repository-root>/IsaacSim/_build/linux-aarch64/release/python.sh`. Override it with
+`--isaac-python` if Isaac Sim is installed elsewhere. `--labeler-python` selects the Python
+environment used for image processing and vial-labeler; it needs Pillow and the vial-labeler's
+dependencies.
+
 `apply_lens.py` can also be run on its own, with any Python that has `numpy` and `opencv-python`:
 ```bash
 python tools/apply_lens.py cap_seal_render_768x576.png cameras/CapSealCam.json cap_seal_final.png
