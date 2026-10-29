@@ -1,0 +1,185 @@
+{
+  "scenes": 3,
+  "golden": "/home/hackathon9/msoe-ai-club-rockwell-automation-nvidia-hackath-corbin-schaffer-s-team-2a90fe23fa/new-model/GoldenImages/G24.jpg",
+  "golden_sha256": "df822eb22f721634ef2658f5ef47e0a749b4c2f98a271d41bd945d1f3145b5e2",
+  "counts": {
+    "gaps": 40,
+    "validation/PASS": 42,
+    "excluded": 44,
+    "validation/NO_PASS": 7,
+    "train/PASS": 41,
+    "train/NO_PASS": 8,
+    "test/PASS": 31,
+    "test/NO_PASS": 7
+  },
+  "status": "pilot_requires_visual_review",
+  "crop_policy": "projected mouth and cap bounds with 15% padding, aspect preserved",
+  "crop_size": [
+    90,
+    108
+  ],
+  "golden_native_size": [
+    80,
+    90
+  ],
+  "source_overlap_across_splits": {
+    "G12_tube": [
+      "train",
+      "validation"
+    ],
+    "G30_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G18_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G22_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G08_tube": [
+      "train",
+      "validation"
+    ],
+    "S03_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G15_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "S05_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G10_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G03_tube": [
+      "test",
+      "validation"
+    ],
+    "G06_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G17_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G02_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "S04_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G13_tube": [
+      "train",
+      "validation"
+    ],
+    "G04_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G27_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G11_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "S02_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G07_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G20_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G28_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "S01_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G05_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G19_tube": [
+      "train",
+      "validation"
+    ],
+    "G21_tube": [
+      "train",
+      "validation"
+    ],
+    "G26_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G16_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G23_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G01_tube": [
+      "test",
+      "train",
+      "validation"
+    ],
+    "G25_tube": [
+      "test",
+      "train"
+    ],
+    "G24_tube": [
+      "test",
+      "train"
+    ]
+  },
+  "limitations": [
+    "Labels use renderer source-name/tilt heuristic; visual QA required.",
+    "Scene-disjoint splits share source assembly families; not independent defect families.",
+    "Fixed real golden and synthetic crops need framing/scale review."
+  ],
+  "occupancy_policy": "empty before last occupied position is gap; trailing empties pending; per tray"
+}

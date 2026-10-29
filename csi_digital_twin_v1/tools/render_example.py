@@ -32,6 +32,7 @@ ap.add_argument("--max-vials", type=int, default=None,
 ap.add_argument("--broken-lean-degrees", type=float, default=0.0,
                 help="maximum tilt from upright for broken S-series vials")
 ap.add_argument("--seed", type=int, default=42, help="randomization seed for reproducible variations")
+ap.add_argument("--export-placements", action="store_true", help="save per-frame slot identity sidecars")
 a = ap.parse_args()
 
 cam = json.load(open(os.path.join(HERE, "cameras", a.camera + ".json")))
@@ -127,6 +128,7 @@ try:
                     None,
                 )
             records.append({
+                "source_id": name,
                 "tube": child,
                 "tube_position": tube_position,
                 "tube_rotation": tube_rotation,
@@ -221,6 +223,7 @@ try:
                 if tube_rotation is None:
                     raise RuntimeError(f"no rotateXYZ operation on duplicated vial {tube_path}")
                 records.append({
+                    "source_id": source["source_id"],
                     "tube": tube,
                     "tube_position": source["tube_position"],
                     "tube_rotation": tube_rotation,
@@ -270,6 +273,7 @@ try:
             count = randomizer.randint(a.min_vials, max_vials)
             chosen_records = randomizer.sample(records, count)
             chosen_slots = randomizer.sample(slots, count)
+            placed_records = dict(zip(chosen_slots, chosen_records))
 
             for record in records:
                 UsdGeom.Imageable(record["tube"]).GetVisibilityAttr().Set(UsdGeom.Tokens.invisible)
@@ -352,6 +356,69 @@ try:
                     os.remove(tmp)
         elif not cv2.imwrite(output_path, img[..., ::-1]):
             raise OSError(f"could not write {output_path}")
+        if a.export_placements:
+            if randomize_trays is None or a.camera != "CapSealCam":
+                raise RuntimeError("placement export requires randomized CapSeal trays")
+            # Projection matches the lens-corrected 640x480 image, before review resizing.
+            def project_point(world):
+                xyz = np.asarray(cam["R_world_to_cv"]) @ (np.asarray(world) - np.asarray(cam["position_m"]))
+                if xyz[2] <= 0:
+                    raise RuntimeError("slot behind camera")
+                x, y = xyz[:2] / xyz[2]
+                distortion = 1 + cam["lens_k1"] * (x*x + y*y)
+                return [float(x * distortion * cam["focal_px_final"] + cam["principal_point_final_px"][0]),
+                        float(y * distortion * cam["focal_px_final"] + cam["principal_point_final_px"][1])]
+            reference_z = float(records[0]["tube_position"][2])
+            entries = []
+            for tray_index, prefix in enumerate(("G", "S")):
+                tray_slots = slots[tray_index*30:(tray_index+1)*30]
+                # Camera X runs right-to-left relative to world X. Sort columns in image space.
+                columns = sorted({xy[0] for xy in tray_slots},
+                                 key=lambda x: project_point((x, tray_slots[0][1], reference_z))[0], reverse=True)
+                ordered = []
+                for x in columns:
+                    ordered.extend(sorted([xy for xy in tray_slots if xy[0] == x],
+                                          key=lambda xy: project_point((*xy, reference_z))[1]))
+                occupied = [i+1 for i, xy in enumerate(ordered) if xy in placed_records]
+                boundary = max(occupied, default=0)
+                for position, xy in enumerate(ordered, 1):
+                    record = placed_records.get(xy)
+                    center = project_point((*xy, reference_z))
+                    inspection_center = None
+                    inspection_bounds = None
+                    if record:
+                        # Inspect the vial mouth/cap, not the assembly's base transform.
+                        # Use world bounds after randomization; cap offsets differ by pose.
+                        geometry_cache = UsdGeom.BBoxCache(Usd.TimeCode.Default(),
+                            [UsdGeom.Tokens.default_, UsdGeom.Tokens.render])
+                        tube_range = geometry_cache.ComputeWorldBound(record["tube"]).ComputeAlignedRange()
+                        lo, hi = tube_range.GetMin(), tube_range.GetMax()
+                        mouth = ((lo[0]+hi[0])/2, (lo[1]+hi[1])/2, hi[2])
+                        points = [project_point((x, y, hi[2]))
+                                  for x in (lo[0], hi[0]) for y in (lo[1], hi[1])]
+                        inspection_center = project_point(mouth)
+                        if record["cap"] is not None:
+                            cap_range = geometry_cache.ComputeWorldBound(record["cap"]).ComputeAlignedRange()
+                            clo, chi = cap_range.GetMin(), cap_range.GetMax()
+                            points.extend(project_point((x,y,z)) for x in (clo[0],chi[0])
+                                          for y in (clo[1],chi[1]) for z in (clo[2],chi[2]))
+                        inspection_bounds = [min(p[0] for p in points), min(p[1] for p in points),
+                                             max(p[0] for p in points), max(p[1] for p in points)]
+                    entries.append({"slot_id": f"{prefix}{position:02}", "tray": prefix,
+                                    "position": position, "center_native": center,
+                                    "inspection_center_native": inspection_center,
+                                    "inspection_bounds_native": inspection_bounds,
+                                    "world_position": [float(xy[0]), float(xy[1]), reference_z],
+                                    "present": record is not None,
+                                    "gap_error": record is None and position < boundary,
+                                    "label": ("NO_PASS" if record["broken"] else "PASS") if record else "no_vial",
+                                    "label_source": "renderer_source_name_and_authored_tilt",
+                                    "source_id": record["source_id"] if record else None,
+                                    "instance_id": str(record["tube"].GetPath()) if record else None})
+            Path(output_path).with_suffix(".placements.json").write_text(json.dumps({
+                "image": Path(output_path).name, "seed": a.seed, "variation": variation+1,
+                "camera": a.camera, "stage": stage_path, "native_size": [640,480],
+                "fill_order": "top_to_bottom_then_left_per_tray", "slots": entries}, indent=2)+"\n")
         print("wrote", output_path, flush=True)
 except BaseException:
     traceback.print_exc()

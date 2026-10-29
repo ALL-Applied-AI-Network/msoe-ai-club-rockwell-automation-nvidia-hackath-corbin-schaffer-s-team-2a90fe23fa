@@ -1,5 +1,7 @@
 .venv
 .vscode
+capseal_review_batches_0
 vial-labeler-participants-v1/__pycache__
 vial-labeler-participants-v1/label-files
 vial-labeler-participants-v1/reviews
+new-model/base-model/model.safetensors

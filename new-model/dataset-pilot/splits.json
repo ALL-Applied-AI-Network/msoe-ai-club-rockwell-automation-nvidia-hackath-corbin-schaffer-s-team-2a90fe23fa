@@ -1,0 +1,5 @@
+{
+  "capseal_0003.placements.json": "test",
+  "capseal_0001.placements.json": "validation",
+  "capseal_0002.placements.json": "train"
+}

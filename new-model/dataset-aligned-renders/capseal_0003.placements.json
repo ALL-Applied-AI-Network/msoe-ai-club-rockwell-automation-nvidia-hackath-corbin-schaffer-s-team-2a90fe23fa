@@ -1,0 +1,1638 @@
+{
+  "image": "capseal_0003.png",
+  "seed": 20261029,
+  "variation": 3,
+  "camera": "CapSealCam",
+  "stage": "/home/hackathon9/msoe-ai-club-rockwell-automation-nvidia-hackath-corbin-schaffer-s-team-2a90fe23fa/csi_digital_twin_v1/stations/tray_inspection/tray_inspection.usdc",
+  "native_size": [
+    640,
+    480
+  ],
+  "fill_order": "top_to_bottom_then_left_per_tray",
+  "slots": [
+    {
+      "slot_id": "G01",
+      "tray": "G",
+      "position": 1,
+      "center_native": [
+        369.6922679531041,
+        164.95265037597505
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.49583264560383566,
+        -0.779723351592212,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G02",
+      "tray": "G",
+      "position": 2,
+      "center_native": [
+        370.6735059707807,
+        198.0299034689673
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.49583264560383566,
+        -0.7189094286821405,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G03",
+      "tray": "G",
+      "position": 3,
+      "center_native": [
+        371.6164643920946,
+        231.20956840241226
+      ],
+      "inspection_center_native": [
+        380.92491589727075,
+        234.0940241320513
+      ],
+      "inspection_bounds_native": [
+        366.71771300952923,
+        219.68300237037977,
+        397.1494746337529,
+        249.37003677911946
+      ],
+      "world_position": [
+        -0.49583264560383566,
+        -0.6576984369902465,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G11_tube",
+      "instance_id": "/TrayInspection/G11_tube"
+    },
+    {
+      "slot_id": "G04",
+      "tray": "G",
+      "position": 4,
+      "center_native": [
+        372.51429215840915,
+        264.237271779419
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.49583264560383566,
+        -0.5964132088744858,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G05",
+      "tray": "G",
+      "position": 5,
+      "center_native": [
+        373.3670755447169,
+        297.0982162069061
+      ],
+      "inspection_center_native": [
+        382.74132394592095,
+        306.0670538559591
+      ],
+      "inspection_bounds_native": [
+        368.8162331135403,
+        291.8700266443507,
+        398.66797436541856,
+        322.3150847486781
+      ],
+      "world_position": [
+        -0.49583264560383566,
+        -0.5349383040311793,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G22_tube",
+      "instance_id": "/TrayInspection/RandomG_053_tube"
+    },
+    {
+      "slot_id": "G06",
+      "tray": "G",
+      "position": 6,
+      "center_native": [
+        341.8872102459323,
+        165.70193647350817
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.44440745182834646,
+        -0.779723351592212,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G07",
+      "tray": "G",
+      "position": 7,
+      "center_native": [
+        342.92254805727106,
+        198.90324148643506
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.44440745182834646,
+        -0.7189094286821405,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G08",
+      "tray": "G",
+      "position": 8,
+      "center_native": [
+        343.94168297932015,
+        232.20587353273723
+      ],
+      "inspection_center_native": [
+        350.68718219906015,
+        235.19523436898405
+      ],
+      "inspection_bounds_native": [
+        336.6961266282132,
+        221.09870486825534,
+        366.1972763864734,
+        250.16434107704427
+      ],
+      "world_position": [
+        -0.44440745182834646,
+        -0.6576984369902465,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G30_tube",
+      "instance_id": "/TrayInspection/G30_tube"
+    },
+    {
+      "slot_id": "G09",
+      "tray": "G",
+      "position": 9,
+      "center_native": [
+        344.93696751136326,
+        265.3541140852027
+      ],
+      "inspection_center_native": [
+        351.74696466964684,
+        271.4452643043549
+      ],
+      "inspection_bounds_native": [
+        338.1191329209473,
+        257.6879610878681,
+        366.8928575262685,
+        286.67844916254705
+      ],
+      "world_position": [
+        -0.44440745182834646,
+        -0.5964132088744858,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G18_tube",
+      "instance_id": "/TrayInspection/RandomG_040_tube"
+    },
+    {
+      "slot_id": "G10",
+      "tray": "G",
+      "position": 10,
+      "center_native": [
+        345.9081738311552,
+        298.3327307553687
+      ],
+      "inspection_center_native": [
+        352.7710404409033,
+        307.4644255526382
+      ],
+      "inspection_bounds_native": [
+        339.21844403911484,
+        293.78207904275126,
+        367.83887995855474,
+        323.216521766524
+      ],
+      "world_position": [
+        -0.44440745182834646,
+        -0.5349383040311793,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G18_tube",
+      "instance_id": "/TrayInspection/RandomG_043_tube"
+    },
+    {
+      "slot_id": "G11",
+      "tray": "G",
+      "position": 11,
+      "center_native": [
+        314.2842422346712,
+        166.4865335342305
+      ],
+      "inspection_center_native": [
+        318.2636497614264,
+        163.23726732404086
+      ],
+      "inspection_bounds_native": [
+        304.4116530943439,
+        148.5361047954419,
+        333.1148144818401,
+        177.07897733349586
+      ],
+      "world_position": [
+        -0.39373333138515,
+        -0.779723351592212,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G06_tube",
+      "instance_id": "/TrayInspection/RandomG_041_tube"
+    },
+    {
+      "slot_id": "G12",
+      "tray": "G",
+      "position": 12,
+      "center_native": [
+        315.3732317418262,
+        199.79238733169868
+      ],
+      "inspection_center_native": [
+        321.0349256927131,
+        199.686030926314
+      ],
+      "inspection_bounds_native": [
+        307.9713664943406,
+        186.61878082381526,
+        334.04002949868396,
+        212.77661882123928
+      ],
+      "world_position": [
+        -0.39373333138515,
+        -0.7189094286821405,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "NO_PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "S02_tube",
+      "instance_id": "/TrayInspection/S02_tube"
+    },
+    {
+      "slot_id": "G13",
+      "tray": "G",
+      "position": 13,
+      "center_native": [
+        316.46817108242914,
+        233.19871017912155
+      ],
+      "inspection_center_native": [
+        320.63528506722383,
+        236.29208320266935
+      ],
+      "inspection_bounds_native": [
+        307.10779299803454,
+        222.73633321932033,
+        335.1749191418626,
+        250.72399013955288
+      ],
+      "world_position": [
+        -0.39373333138515,
+        -0.6576984369902465,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G27_tube",
+      "instance_id": "/TrayInspection/G27_tube"
+    },
+    {
+      "slot_id": "G14",
+      "tray": "G",
+      "position": 14,
+      "center_native": [
+        317.5606133021024,
+        266.4485396623004
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.39373333138515,
+        -0.5964132088744858,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G15",
+      "tray": "G",
+      "position": 15,
+      "center_native": [
+        318.65001070015904,
+        299.52617055862714
+      ],
+      "inspection_center_native": [
+        322.9865753194368,
+        308.808659765877
+      ],
+      "inspection_bounds_native": [
+        308.3814844990633,
+        294.19291401897044,
+        338.61716534370055,
+        325.5292207998628
+      ],
+      "world_position": [
+        -0.39373333138515,
+        -0.5349383040311793,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G05_tube",
+      "instance_id": "/TrayInspection/G05_tube"
+    },
+    {
+      "slot_id": "G16",
+      "tray": "G",
+      "position": 16,
+      "center_native": [
+        286.1112527398144,
+        167.32911084877713
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.34230984777657125,
+        -0.779723351592212,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G17",
+      "tray": "G",
+      "position": 17,
+      "center_native": [
+        287.2545813237389,
+        200.72261517798427
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.34230984777657125,
+        -0.7189094286821405,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G18",
+      "tray": "G",
+      "position": 18,
+      "center_native": [
+        288.4267547101402,
+        234.21594120427767
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.34230984777657125,
+        -0.6576984369902465,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G19",
+      "tray": "G",
+      "position": 19,
+      "center_native": [
+        289.6185018492621,
+        267.5509493028286
+      ],
+      "inspection_center_native": [
+        291.8710747320465,
+        276.36269035599537
+      ],
+      "inspection_bounds_native": [
+        278.81063594116677,
+        262.9412588607205,
+        311.94741789277424,
+        298.9640834822317
+      ],
+      "world_position": [
+        -0.34230984777657125,
+        -0.5964132088744858,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "NO_PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "S04_tube",
+      "instance_id": "/TrayInspection/S04_tube"
+    },
+    {
+      "slot_id": "G20",
+      "tray": "G",
+      "position": 20,
+      "center_native": [
+        290.8289387456265,
+        300.711408364185
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.34230984777657125,
+        -0.5349383040311793,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G21",
+      "tray": "G",
+      "position": 21,
+      "center_native": [
+        257.74554269626583,
+        168.22028205429913
+      ],
+      "inspection_center_native": [
+        256.32540029251084,
+        165.11542055349364
+      ],
+      "inspection_bounds_native": [
+        242.2155201307318,
+        150.73000742104767,
+        269.8831385864407,
+        178.65402143972793
+      ],
+      "world_position": [
+        -0.2907467069965236,
+        -0.779723351592212,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G01_tube",
+      "instance_id": "/TrayInspection/G01_tube"
+    },
+    {
+      "slot_id": "G22",
+      "tray": "G",
+      "position": 22,
+      "center_native": [
+        258.94276947882486,
+        201.6825098818728
+      ],
+      "inspection_center_native": [
+        257.12878662536065,
+        201.82342114997195
+      ],
+      "inspection_bounds_native": [
+        244.36421843474687,
+        189.11257252644833,
+        269.86656555974,
+        214.54149041768054
+      ],
+      "world_position": [
+        -0.2907467069965236,
+        -0.7189094286821405,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "NO_PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "S03_tube",
+      "instance_id": "/TrayInspection/S03_tube"
+    },
+    {
+      "slot_id": "G23",
+      "tray": "G",
+      "position": 23,
+      "center_native": [
+        260.1922284287435,
+        235.2441458119601
+      ],
+      "inspection_center_native": [
+        259.0125699903405,
+        238.5486991324533
+      ],
+      "inspection_bounds_native": [
+        244.72672753946904,
+        224.8247461646858,
+        272.7739903850817,
+        253.1791129104453
+      ],
+      "world_position": [
+        -0.2907467069965236,
+        -0.6576984369902465,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G07_tube",
+      "instance_id": "/TrayInspection/G07_tube"
+    },
+    {
+      "slot_id": "G24",
+      "tray": "G",
+      "position": 24,
+      "center_native": [
+        261.483811369405,
+        268.64595820505156
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.2907467069965236,
+        -0.5964132088744858,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G25",
+      "tray": "G",
+      "position": 25,
+      "center_native": [
+        262.81628404591504,
+        301.8711407864522
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.2907467069965236,
+        -0.5349383040311793,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G26",
+      "tray": "G",
+      "position": 26,
+      "center_native": [
+        229.40359659226488,
+        169.1541238505377
+      ],
+      "inspection_center_native": [
+        225.26530183525136,
+        166.1383782251273
+      ],
+      "inspection_bounds_native": [
+        209.80325455979,
+        150.9533216178199,
+        239.62349719513398,
+        180.4736792426654
+      ],
+      "world_position": [
+        -0.23934762596791118,
+        -0.779723351592212,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G30_tube",
+      "instance_id": "/TrayInspection/RandomG_038_tube"
+    },
+    {
+      "slot_id": "G27",
+      "tray": "G",
+      "position": 27,
+      "center_native": [
+        230.65345838520653,
+        202.66523443809913
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.23934762596791118,
+        -0.7189094286821405,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "G28",
+      "tray": "G",
+      "position": 28,
+      "center_native": [
+        231.97930525948257,
+        236.2755855308813
+      ],
+      "inspection_center_native": [
+        228.10713668661379,
+        239.68428061743225
+      ],
+      "inspection_bounds_native": [
+        213.86762173553598,
+        226.5655056602949,
+        241.2977601589384,
+        253.71293469609648
+      ],
+      "world_position": [
+        -0.23934762596791118,
+        -0.6576984369902465,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G28_tube",
+      "instance_id": "/TrayInspection/G28_tube"
+    },
+    {
+      "slot_id": "G29",
+      "tray": "G",
+      "position": 29,
+      "center_native": [
+        233.37018610557448,
+        269.7249474451513
+      ],
+      "inspection_center_native": [
+        229.6565541558304,
+        276.29827813800495
+      ],
+      "inspection_bounds_native": [
+        217.08229299360437,
+        264.8239241188726,
+        241.2419601574137,
+        289.28580984125716
+      ],
+      "world_position": [
+        -0.23934762596791118,
+        -0.5964132088744858,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G16_tube",
+      "instance_id": "/TrayInspection/G16_tube"
+    },
+    {
+      "slot_id": "G30",
+      "tray": "G",
+      "position": 30,
+      "center_native": [
+        234.82450322880948,
+        302.99589158773955
+      ],
+      "inspection_center_native": [
+        229.90953400706414,
+        316.4297831580111
+      ],
+      "inspection_bounds_native": [
+        217.84915298320354,
+        304.59768889117254,
+        241.93497954677332,
+        328.21717711422946
+      ],
+      "world_position": [
+        -0.23934762596791118,
+        -0.5349383040311793,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "NO_PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "S05_tube",
+      "instance_id": "/TrayInspection/S05_tube"
+    },
+    {
+      "slot_id": "S01",
+      "tray": "S",
+      "position": 1,
+      "center_native": [
+        547.0927637731786,
+        250.21073352063303
+      ],
+      "inspection_center_native": [
+        571.0882138630627,
+        254.63693316317756
+      ],
+      "inspection_bounds_native": [
+        558.7573976162217,
+        240.98228349683052,
+        588.2005131902445,
+        269.4726366323755
+      ],
+      "world_position": [
+        -0.8367007160922282,
+        -0.6091623013310876,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G22_tube",
+      "instance_id": "/TrayInspection/RandomG_047_tube"
+    },
+    {
+      "slot_id": "S02",
+      "tray": "S",
+      "position": 2,
+      "center_native": [
+        547.2621373480206,
+        281.60193821237254
+      ],
+      "inspection_center_native": [
+        571.1322520582445,
+        288.7185749931523
+      ],
+      "inspection_bounds_native": [
+        561.6007683813802,
+        278.0274862475359,
+        585.5265614859815,
+        301.0456047473607
+      ],
+      "world_position": [
+        -0.8367007160922282,
+        -0.5483483784210161,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G20_tube",
+      "instance_id": "/TrayInspection/RandomG_052_tube"
+    },
+    {
+      "slot_id": "S03",
+      "tray": "S",
+      "position": 3,
+      "center_native": [
+        547.2603002287824,
+        312.9061215146374
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.8367007160922282,
+        -0.4871373867291222,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "S04",
+      "tray": "S",
+      "position": 4,
+      "center_native": [
+        547.0877326033944,
+        343.8883246433605
+      ],
+      "inspection_center_native": [
+        570.5443925815271,
+        356.1841153804112
+      ],
+      "inspection_bounds_native": [
+        558.2034608414906,
+        342.4698711143522,
+        587.666831314978,
+        372.5952601132609
+      ],
+      "world_position": [
+        -0.8367007160922282,
+        -0.42585215861336145,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G11_tube",
+      "instance_id": "/TrayInspection/RandomG_058_tube"
+    },
+    {
+      "slot_id": "S05",
+      "tray": "S",
+      "position": 5,
+      "center_native": [
+        546.745458390993,
+        374.5400521951849
+      ],
+      "inspection_center_native": [
+        569.9163293652218,
+        389.276318074334
+      ],
+      "inspection_bounds_native": [
+        558.1447468304015,
+        376.2774197224536,
+        586.4154197927678,
+        405.42379467324747
+      ],
+      "world_position": [
+        -0.8367007160922282,
+        -0.3643772537700549,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G04_tube",
+      "instance_id": "/TrayInspection/RandomG_036_tube"
+    },
+    {
+      "slot_id": "S06",
+      "tray": "S",
+      "position": 6,
+      "center_native": [
+        521.8732766192654,
+        251.2759375143591
+      ],
+      "inspection_center_native": [
+        543.9721368624402,
+        255.83881725704617
+      ],
+      "inspection_bounds_native": [
+        533.0689289797499,
+        243.94617957104168,
+        559.3358348920923,
+        268.89306380424017
+      ],
+      "world_position": [
+        -0.7852755223167389,
+        -0.6091623013310876,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G17_tube",
+      "instance_id": "/TrayInspection/G17_tube"
+    },
+    {
+      "slot_id": "S07",
+      "tray": "S",
+      "position": 7,
+      "center_native": [
+        522.1367140921021,
+        282.8872928522767
+      ],
+      "inspection_center_native": [
+        544.1293262270972,
+        290.19879545668755
+      ],
+      "inspection_bounds_native": [
+        531.7136107433108,
+        276.5286696986331,
+        560.9688997105911,
+        305.60726933553474
+      ],
+      "world_position": [
+        -0.7852755223167389,
+        -0.5483483784210161,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G03_tube",
+      "instance_id": "/TrayInspection/G03_tube"
+    },
+    {
+      "slot_id": "S08",
+      "tray": "S",
+      "position": 8,
+      "center_native": [
+        522.2473984255224,
+        314.4076944228062
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.7852755223167389,
+        -0.4871373867291222,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "S09",
+      "tray": "S",
+      "position": 9,
+      "center_native": [
+        522.2049079628212,
+        345.6004772319934
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.7852755223167389,
+        -0.42585215861336145,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "S10",
+      "tray": "S",
+      "position": 10,
+      "center_native": [
+        522.0101179440359,
+        376.45702412124376
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.7852755223167389,
+        -0.3643772537700549,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "S11",
+      "tray": "S",
+      "position": 11,
+      "center_native": [
+        496.5694974134613,
+        252.3339893445488
+      ],
+      "inspection_center_native": [
+        524.4269370680507,
+        258.845814537537
+      ],
+      "inspection_bounds_native": [
+        512.8898390010252,
+        246.39413603416205,
+        535.8179488995713,
+        271.33680583782996
+      ],
+      "world_position": [
+        -0.7346014018735425,
+        -0.6091623013310876,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "NO_PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "S02_tube",
+      "instance_id": "/TrayInspection/RandomS_059_tube"
+    },
+    {
+      "slot_id": "S12",
+      "tray": "S",
+      "position": 12,
+      "center_native": [
+        496.92929851621915,
+        284.14821583778996
+      ],
+      "inspection_center_native": [
+        516.9492571770618,
+        291.64810700983895
+      ],
+      "inspection_bounds_native": [
+        506.99921472744745,
+        280.85199103554476,
+        530.9657645870047,
+        304.1584189459737
+      ],
+      "world_position": [
+        -0.7346014018735425,
+        -0.5483483784210161,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G23_tube",
+      "instance_id": "/TrayInspection/G23_tube"
+    },
+    {
+      "slot_id": "S13",
+      "tray": "S",
+      "position": 13,
+      "center_native": [
+        497.1548446292437,
+        315.86774366881457
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.7346014018735425,
+        -0.4871373867291222,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "S14",
+      "tray": "S",
+      "position": 14,
+      "center_native": [
+        497.2447960822684,
+        347.25429216818816
+      ],
+      "inspection_center_native": [
+        516.9611412876563,
+        360.1452269659999
+      ],
+      "inspection_bounds_native": [
+        504.8303213970784,
+        346.9078090304003,
+        533.1850367019892,
+        376.1886278495914
+      ],
+      "world_position": [
+        -0.7346014018735425,
+        -0.42585215861336145,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G04_tube",
+      "instance_id": "/TrayInspection/G04_tube"
+    },
+    {
+      "slot_id": "S15",
+      "tray": "S",
+      "position": 15,
+      "center_native": [
+        497.19988005318237,
+        378.29908965358857
+      ],
+      "inspection_center_native": [
+        516.7000301466671,
+        393.72958289752466
+      ],
+      "inspection_bounds_native": [
+        504.869766436626,
+        380.90171106517306,
+        532.5804326665818,
+        409.8426471328527
+      ],
+      "world_position": [
+        -0.7346014018735425,
+        -0.3643772537700549,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G27_tube",
+      "instance_id": "/TrayInspection/RandomG_055_tube"
+    },
+    {
+      "slot_id": "S16",
+      "tray": "S",
+      "position": 16,
+      "center_native": [
+        470.4663957662537,
+        253.41471205999397
+      ],
+      "inspection_center_native": [
+        488.4330667403676,
+        258.2493647601792
+      ],
+      "inspection_bounds_native": [
+        475.4690143578093,
+        244.52433936453897,
+        505.06289742351726,
+        273.22607437228646
+      ],
+      "world_position": [
+        -0.6831779182649638,
+        -0.6091623013310876,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G30_tube",
+      "instance_id": "/TrayInspection/RandomG_050_tube"
+    },
+    {
+      "slot_id": "S17",
+      "tray": "S",
+      "position": 17,
+      "center_native": [
+        470.927416395489,
+        285.4201449268844
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.6831779182649638,
+        -0.5483483784210161,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "S18",
+      "tray": "S",
+      "position": 18,
+      "center_native": [
+        471.27327592119417,
+        317.32721752624684
+      ],
+      "inspection_center_native": [
+        495.9349579727514,
+        331.8449568974147
+      ],
+      "inspection_bounds_native": [
+        480.6982191687109,
+        320.1950347162872,
+        509.1285710592399,
+        351.4825554174553
+      ],
+      "world_position": [
+        -0.6831779182649638,
+        -0.4871373867291222,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "NO_PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "S01_tube",
+      "instance_id": "/TrayInspection/RandomS_056_tube"
+    },
+    {
+      "slot_id": "S19",
+      "tray": "S",
+      "position": 19,
+      "center_native": [
+        471.50167461979004,
+        348.89607804328205
+      ],
+      "inspection_center_native": [
+        489.16139534477446,
+        362.06853324612763
+      ],
+      "inspection_bounds_native": [
+        476.00591898335256,
+        347.9017746821055,
+        505.9524092371121,
+        379.10865636851906
+      ],
+      "world_position": [
+        -0.6831779182649638,
+        -0.42585215861336145,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G24_tube",
+      "instance_id": "/TrayInspection/G24_tube"
+    },
+    {
+      "slot_id": "S20",
+      "tray": "S",
+      "position": 20,
+      "center_native": [
+        471.6131870526379,
+        380.11776198059533
+      ],
+      "inspection_center_native": [
+        489.0945586264605,
+        395.87382362337996
+      ],
+      "inspection_bounds_native": [
+        479.8326533112922,
+        385.90283511734003,
+        502.0011806481433,
+        409.1610289404193
+      ],
+      "world_position": [
+        -0.6831779182649638,
+        -0.3643772537700549,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G10_tube",
+      "instance_id": "/TrayInspection/RandomG_037_tube"
+    },
+    {
+      "slot_id": "S21",
+      "tray": "S",
+      "position": 21,
+      "center_native": [
+        443.8983690337053,
+        254.50389489385466
+      ],
+      "inspection_center_native": [
+        459.6119868820771,
+        259.4749690251109
+      ],
+      "inspection_bounds_native": [
+        446.4213858091137,
+        245.68455801333002,
+        476.04098446432806,
+        274.5409581043699
+      ],
+      "world_position": [
+        -0.631614777484916,
+        -0.6091623013310876,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G15_tube",
+      "instance_id": "/TrayInspection/RandomG_039_tube"
+    },
+    {
+      "slot_id": "S22",
+      "tray": "S",
+      "position": 22,
+      "center_native": [
+        444.4640372106791,
+        286.6858136768858
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.631614777484916,
+        -0.5483483784210161,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "S23",
+      "tray": "S",
+      "position": 23,
+      "center_native": [
+        444.93402368992156,
+        318.76584790447043
+      ],
+      "inspection_center_native": [
+        460.53406743647474,
+        329.4701502132099
+      ],
+      "inspection_bounds_native": [
+        448.58889345641046,
+        316.84732107723767,
+        475.67313052627026,
+        344.46626992239936
+      ],
+      "world_position": [
+        -0.631614777484916,
+        -0.4871373867291222,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G28_tube",
+      "instance_id": "/TrayInspection/RandomG_042_tube"
+    },
+    {
+      "slot_id": "S24",
+      "tray": "S",
+      "position": 24,
+      "center_native": [
+        445.3050387013201,
+        350.50264145786423
+      ],
+      "inspection_center_native": [
+        460.7989806761699,
+        363.94376972956627
+      ],
+      "inspection_bounds_native": [
+        447.3268828706754,
+        349.68270802672026,
+        477.40825209130503,
+        381.1293360971969
+      ],
+      "world_position": [
+        -0.631614777484916,
+        -0.42585215861336145,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G02_tube",
+      "instance_id": "/TrayInspection/G02_tube"
+    },
+    {
+      "slot_id": "S25",
+      "tray": "S",
+      "position": 25,
+      "center_native": [
+        445.5775005478731,
+        381.886999097511
+      ],
+      "inspection_center_native": [
+        466.84187707568753,
+        404.1326957647286
+      ],
+      "inspection_bounds_native": [
+        452.69429421727875,
+        393.78215607473476,
+        484.20304296617985,
+        431.4806223457514
+      ],
+      "world_position": [
+        -0.631614777484916,
+        -0.3643772537700549,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "NO_PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "S01_tube",
+      "instance_id": "/TrayInspection/S01_tube"
+    },
+    {
+      "slot_id": "S26",
+      "tray": "S",
+      "position": 26,
+      "center_native": [
+        417.05960728580914,
+        255.59347840546147
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.5802156964563036,
+        -0.6091623013310876,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "S27",
+      "tray": "S",
+      "position": 27,
+      "center_native": [
+        417.7323978778451,
+        287.9357168340366
+      ],
+      "inspection_center_native": null,
+      "inspection_bounds_native": null,
+      "world_position": [
+        -0.5802156964563036,
+        -0.5483483784210161,
+        1.180338113634555
+      ],
+      "present": false,
+      "gap_error": true,
+      "label": "no_vial",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": null,
+      "instance_id": null
+    },
+    {
+      "slot_id": "S28",
+      "tray": "S",
+      "position": 28,
+      "center_native": [
+        418.32926479185363,
+        320.17271163836506
+      ],
+      "inspection_center_native": [
+        431.64147225952655,
+        331.092495676472
+      ],
+      "inspection_bounds_native": [
+        420.9360366575988,
+        319.93526727147855,
+        445.10889514920984,
+        344.6414574389227
+      ],
+      "world_position": [
+        -0.5802156964563036,
+        -0.4871373867291222,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G26_tube",
+      "instance_id": "/TrayInspection/G26_tube"
+    },
+    {
+      "slot_id": "S29",
+      "tray": "S",
+      "position": 29,
+      "center_native": [
+        418.8459055565361,
+        352.0616799948538
+      ],
+      "inspection_center_native": [
+        432.08790596528144,
+        365.7559935194964
+      ],
+      "inspection_bounds_native": [
+        418.76775288687907,
+        351.8750649696283,
+        448.12277980294505,
+        382.60330900235596
+      ],
+      "world_position": [
+        -0.5802156964563036,
+        -0.42585215861336145,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G14_tube",
+      "instance_id": "/TrayInspection/G14_tube"
+    },
+    {
+      "slot_id": "S30",
+      "tray": "S",
+      "position": 30,
+      "center_native": [
+        419.28257862100423,
+        383.5931583693664
+      ],
+      "inspection_center_native": [
+        432.42710072981913,
+        399.946713228413
+      ],
+      "inspection_bounds_native": [
+        421.13033370241226,
+        388.17601663085793,
+        446.4194151019128,
+        415.17208471726815
+      ],
+      "world_position": [
+        -0.5802156964563036,
+        -0.3643772537700549,
+        1.180338113634555
+      ],
+      "present": true,
+      "gap_error": false,
+      "label": "PASS",
+      "label_source": "renderer_source_name_and_authored_tilt",
+      "source_id": "G25_tube",
+      "instance_id": "/TrayInspection/G25_tube"
+    }
+  ]
+}
