@@ -107,7 +107,7 @@ def build(renders, golden, output):
               'crop_policy':'projected mouth and cap bounds with 15% padding, aspect preserved',
               'crop_size':[90,108], 'golden_native_size':list(Image.open(golden).size),
               'source_overlap_across_splits':{k:sorted(v) for k,v in sources.items() if len(v)>1},
-              'limitations':['Labels use renderer source-name/tilt heuristic; visual QA required.',
+              'limitations':['Label provenance is recorded per sample; geometric labels still require visibility QA.',
                             'Scene-disjoint splits share source assembly families; not independent defect families.',
                             'Fixed real golden and synthetic crops need framing/scale review.'],
               'occupancy_policy':'empty before last occupied position is gap; trailing empties pending; per tray'}

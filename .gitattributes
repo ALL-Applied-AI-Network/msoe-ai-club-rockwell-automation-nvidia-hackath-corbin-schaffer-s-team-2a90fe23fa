@@ -1,3 +1,6 @@
 csi_digital_twin_v1 filter=lfs diff=lfs merge=lfs -text
 *.usdc filter=lfs diff=lfs merge=lfs -text
 new-model/base-model/model.safetensors filter=lfs diff=lfs merge=lfs -text
+final_model/exports/vial-inspector-gb10 filter=lfs diff=lfs merge=lfs -text
+final_model/exports/vial-inspector-gb10.part01 filter=lfs diff=lfs merge=lfs -text
+final_model/exports/vial-inspector-gb10.part02 filter=lfs diff=lfs merge=lfs -text

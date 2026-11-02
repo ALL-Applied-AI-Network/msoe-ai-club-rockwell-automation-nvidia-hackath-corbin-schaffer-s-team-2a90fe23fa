@@ -12,6 +12,7 @@ CapSealCam is rendered with overscan and then given the real lens distortion (to
 """
 import argparse, json, math, os, random, re, subprocess, sys, traceback
 from pathlib import Path
+from cap_label_policy import label_cap, POLICY
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ap = argparse.ArgumentParser()
@@ -33,7 +34,35 @@ ap.add_argument("--broken-lean-degrees", type=float, default=0.0,
                 help="maximum tilt from upright for broken S-series vials")
 ap.add_argument("--seed", type=int, default=42, help="randomization seed for reproducible variations")
 ap.add_argument("--export-placements", action="store_true", help="save per-frame slot identity sidecars")
+ap.add_argument("--occupancy-mode", choices=["random", "mixed"], default="random",
+                help="mixed cycles full trays, valid fill prefixes and random gaps")
+ap.add_argument("--placements-only", action="store_true", help="replay seed to export updated labels without rendering")
+ap.add_argument("--verify-placements-dir", type=Path, help="require replay identity and bounds to match existing sidecars")
+ap.add_argument("--segment-pairs", type=Path, help="export controlled full-frame PNG pairs under this dataset root")
+ap.add_argument("--segment-defect", choices=["tilt", "missing", "random", "none"], default="tilt")
+ap.add_argument("--segment-tilt-degrees", type=float, default=15.0)
+ap.add_argument("--segment-unchanged-every", type=int, default=5,
+                help="every Nth pair is normal/normal; 0 disables unchanged pairs")
+ap.add_argument("--export-detections", action="store_true", help="export full-frame defect boxes with slot IDs; implies placement export")
+ap.add_argument("--detection-scope", choices=["G", "both"], default="G", help="prioritize good tray G01-G30 by default")
 a = ap.parse_args()
+if a.export_detections:
+    if a.segment_pairs or a.placements_only or a.camera != "CapSealCam":
+        ap.error("detection export requires rendered randomized CapSeal frames, separate from segment pairs")
+    a.export_placements = True
+    a.randomize_trays = True
+if a.segment_pairs:
+    if a.camera != "CapSealCam" or a.placements_only or a.export_placements:
+        ap.error("segment pairs require CapSealCam and cannot use placements-only/export-placements")
+    if a.min_vials < 1 or not 0 < a.segment_tilt_degrees < 90 or a.segment_unchanged_every < 0:
+        ap.error("segment pairs require min-vials >=1, tilt in (0,90), and unchanged-every >=0")
+    a.randomize_trays = True
+    if a.broken_lean_degrees:
+        ap.error("segment pairs require upright vials; omit broken-lean-degrees")
+    if a.segment_pairs.exists():
+        ap.error("segment dataset root already exists; choose a new directory")
+    for directory in ("A", "B", "list", "scenes"):
+        (a.segment_pairs / directory).mkdir(parents=True, exist_ok=True)
 
 cam = json.load(open(os.path.join(HERE, "cameras", a.camera + ".json")))
 stage_path = Path(a.stage).expanduser()
@@ -140,6 +169,19 @@ try:
             })
             if re.fullmatch(r"G\d+_tube", name):
                 good_tubes.append(tube_position)
+
+        if a.segment_pairs:
+            # Use only authored normal assemblies: damaged-source cap offsets are not normal references.
+            records = [r for r in records if not r["broken"] and r["cap"] is not None
+                       and r["cap_rotation"] is not None]
+            if not records:
+                raise RuntimeError("no normal capped assemblies available for segment pairs")
+            retained = {str(r["tube"].GetPath()) for r in records}
+            for child in station_root.GetChildren():
+                if re.fullmatch(r"[GS]\d+_(tube|cap)", child.GetName()):
+                    tube_path = str(child.GetPath()).removesuffix("_cap") + "_tube" if child.GetName().endswith("_cap") else str(child.GetPath())
+                    if tube_path not in retained:
+                        UsdGeom.Imageable(child).GetVisibilityAttr().Set(UsdGeom.Tokens.invisible)
 
         def cluster_axis(values):
             clusters = []
@@ -271,8 +313,27 @@ try:
         if randomize_trays is not None:
             records, slots, max_vials = randomize_trays
             count = randomizer.randint(a.min_vials, max_vials)
+            occupancy_kind = "random_gaps"
+            if a.occupancy_mode == "mixed" and variation % 3 == 0:
+                count = max_vials
+                occupancy_kind = "full" if count == 60 else "random_gaps"
             chosen_records = randomizer.sample(records, count)
             chosen_slots = randomizer.sample(slots, count)
+            if a.occupancy_mode == "mixed" and variation % 3 == 1:
+                occupancy_kind = "valid_prefix"
+                def projected_order(xy):
+                    world = np.asarray([*xy, float(records[0]["tube_position"][2])])
+                    xyz = np.asarray(cam["R_world_to_cv"]) @ (world-np.asarray(cam["position_m"]))
+                    return xyz[:2]/xyz[2]
+                ordered_trays = []
+                for offset in (0,30):
+                    tray = slots[offset:offset+30]
+                    columns = sorted({xy[0] for xy in tray},
+                                     key=lambda x: projected_order((x,tray[0][1]))[0], reverse=True)
+                    ordered_trays.append([xy for x in columns for xy in sorted(
+                        [p for p in tray if p[0]==x],key=lambda p: projected_order(p)[1])])
+                first_count = randomizer.randint(max(0,count-30),min(30,count))
+                chosen_slots = ordered_trays[0][:first_count]+ordered_trays[1][:count-first_count]
             placed_records = dict(zip(chosen_slots, chosen_records))
 
             for record in records:
@@ -334,28 +395,77 @@ try:
                     UsdGeom.Imageable(record["cap"]).GetVisibilityAttr().Set(UsdGeom.Tokens.inherited)
             print(f"Variation {variation + 1}: {count} vials", flush=True)
 
-        kit.update()
-        for _ in range(2):
-            rep.orchestrator.step(rt_subframes=a.subframes, delta_time=0.0)
-        data = np.asarray(ann.get_data())
-        if data.ndim != 3 or data.shape[:2] != (rh, rw) or data.shape[2] < 3:
-            raise RuntimeError(f"RGB capture returned shape {data.shape}; check GPU/RTX startup errors")
-        img = data[..., :3].copy()
+        def capture(output_path):
+            kit.update()
+            for _ in range(2):
+                rep.orchestrator.step(rt_subframes=a.subframes, delta_time=0.0)
+            data = np.asarray(ann.get_data())
+            if data.ndim != 3 or data.shape[:2] != (rh, rw) or data.shape[2] < 3:
+                raise RuntimeError(f"RGB capture returned shape {data.shape}; check GPU/RTX startup errors")
+            img = data[..., :3].copy()
 
-        # Save and post-process before close(): Isaac's default fast shutdown exits
-        # the process and will never execute statements after kit.close().
-        if cam.get("overscan", 1.0) != 1.0:
-            tmp = output_path + ".pinhole.png"
-            if not cv2.imwrite(tmp, img[..., ::-1]):
-                raise OSError(f"could not write {tmp}")
+            # Save and post-process before close(): Isaac's default fast shutdown exits
+            # the process and will never execute statements after kit.close().
+            if cam.get("overscan", 1.0) != 1.0:
+                tmp = output_path + ".pinhole.png"
+                if not cv2.imwrite(tmp, img[..., ::-1]):
+                    raise OSError(f"could not write {tmp}")
+                try:
+                    subprocess.run([sys.executable, os.path.join(HERE, "tools", "apply_lens.py"), tmp,
+                                    os.path.join(HERE, "cameras", a.camera + ".json"), output_path], check=True)
+                finally:
+                    if os.path.exists(tmp):
+                        os.remove(tmp)
+            elif not cv2.imwrite(output_path, img[..., ::-1]):
+                raise OSError(f"could not write {output_path}")
+        if a.segment_pairs:
+            name = f"pair_{variation + 1:06d}.png"
+            target = chosen_records[variation % len(chosen_records)]
+            unchanged = (a.segment_defect == "none" or
+                         (a.segment_unchanged_every > 0 and (variation + 1) % a.segment_unchanged_every == 0))
+            defect = a.segment_defect
+            if unchanged:
+                defect = "none"
+            elif a.segment_defect == "random":
+                defect = random.choice(["tilt", "missing"])
+            root = a.segment_pairs
+            scene_file = root / "scenes" / f"{Path(name).stem}.usda"
+            # Flatten A so the complete normal scene (camera, lights, placements) is reproducible.
+            if not stage.Export(str(scene_file)):
+                raise OSError(f"could not export normal scene to {scene_file}")
+            normal_rotation = target["cap_rotation"].Get()
+            normal_visibility = UsdGeom.Imageable(target["cap"]).GetVisibilityAttr().Get()
+            transforms = []
+            xform_cache.Clear()
+            for record in chosen_records:
+                transforms.append({"tube": str(record["tube"].GetPath()),
+                                   "cap": str(record["cap"].GetPath()),
+                                   "tube_world": [list(row) for row in xform_cache.GetLocalToWorldTransform(record["tube"])],
+                                   "cap_world": [list(row) for row in xform_cache.GetLocalToWorldTransform(record["cap"])]})
             try:
-                subprocess.run([sys.executable, os.path.join(HERE, "tools", "apply_lens.py"), tmp,
-                                os.path.join(HERE, "cameras", a.camera + ".json"), output_path], check=True)
+                capture(str(root / "A" / name))
+                if defect == "tilt":
+                    target["cap_rotation"].Set(Gf.Vec3f(a.segment_tilt_degrees + random.randint(0, 25), 0, normal_rotation[2]))
+                elif defect == "missing":
+                    UsdGeom.Imageable(target["cap"]).GetVisibilityAttr().Set(UsdGeom.Tokens.invisible)
+                capture(str(root / "B" / name))
             finally:
-                if os.path.exists(tmp):
-                    os.remove(tmp)
-        elif not cv2.imwrite(output_path, img[..., ::-1]):
-            raise OSError(f"could not write {output_path}")
+                target["cap_rotation"].Set(normal_rotation)
+                UsdGeom.Imageable(target["cap"]).GetVisibilityAttr().Set(normal_visibility)
+                xform_cache.Clear()
+            metadata = {"image": name, "seed": a.seed, "variation": variation + 1,
+                        "camera": cam, "stage": stage_path, "normal_scene": str(scene_file),
+                        "frame": a.frame, "subframes": a.subframes, "assemblies": transforms,
+                        "target_cap": str(target["cap"].GetPath()), "defect": defect,
+                        "tilt_degrees": a.segment_tilt_degrees if defect == "tilt" else 0,
+                        "crop": "full frame; identical lens processing for A and B",
+                        "ground_truth_masks": False}
+            (root / "scenes" / f"{Path(name).stem}.json").write_text(json.dumps(metadata, indent=2) + "\n")
+            with (root / "list" / "test.txt").open("a") as listing:
+                listing.write(name + "\n")
+            print(f"wrote segment pair {name} ({defect})", flush=True)
+        elif not a.placements_only:
+            capture(output_path)
         if a.export_placements:
             if randomize_trays is None or a.camera != "CapSealCam":
                 raise RuntimeError("placement export requires randomized CapSeal trays")
@@ -386,7 +496,13 @@ try:
                     center = project_point((*xy, reference_z))
                     inspection_center = None
                     inspection_bounds = None
+                    cap_policy = {"label": "no_vial", "cap_tilt_degrees": None, "label_reason": "empty_slot"}
                     if record:
+                        xform_cache.Clear()
+                        vial_axis = xform_cache.GetLocalToWorldTransform(record["tube"]).TransformDir(Gf.Vec3d(0,0,1))
+                        cap_axis = (xform_cache.GetLocalToWorldTransform(record["cap"]).TransformDir(Gf.Vec3d(0,0,1))
+                                    if record["cap"] is not None else (0,0,1))
+                        cap_policy = label_cap(record["cap"] is not None, vial_axis, cap_axis)
                         # Inspect the vial mouth/cap, not the assembly's base transform.
                         # Use world bounds after randomization; cap offsets differ by pose.
                         geometry_cache = UsdGeom.BBoxCache(Usd.TimeCode.Default(),
@@ -411,15 +527,33 @@ try:
                                     "world_position": [float(xy[0]), float(xy[1]), reference_z],
                                     "present": record is not None,
                                     "gap_error": record is None and position < boundary,
-                                    "label": ("NO_PASS" if record["broken"] else "PASS") if record else "no_vial",
-                                    "label_source": "renderer_source_name_and_authored_tilt",
+                                    **cap_policy, "cap_present": record is not None and record["cap"] is not None,
+                                    "label_source": POLICY, "cap_tilt_threshold_degrees": 1.0,
                                     "source_id": record["source_id"] if record else None,
                                     "instance_id": str(record["tube"].GetPath()) if record else None})
+            if a.verify_placements_dir:
+                previous = json.loads((a.verify_placements_dir / Path(output_path).with_suffix(".placements.json").name).read_text())
+                for old, new in zip(previous["slots"], entries):
+                    for key in ("slot_id", "source_id", "instance_id", "present", "gap_error"):
+                        if old[key] != new[key]:
+                            raise RuntimeError(f"Replay mismatch: {key} for {new['slot_id']}")
+                    for key in ("center_native", "inspection_bounds_native"):
+                        if old[key] is None and new[key] is None:
+                            continue
+                        if old[key] is None or new[key] is None or any(abs(x-y)>1e-5 for x,y in zip(old[key],new[key])):
+                            raise RuntimeError(f"Replay geometry mismatch for {new['slot_id']}")
             Path(output_path).with_suffix(".placements.json").write_text(json.dumps({
                 "image": Path(output_path).name, "seed": a.seed, "variation": variation+1,
                 "camera": a.camera, "stage": stage_path, "native_size": [640,480],
-                "fill_order": "top_to_bottom_then_left_per_tray", "slots": entries}, indent=2)+"\n")
-        print("wrote", output_path, flush=True)
+                "fill_order": "top_to_bottom_then_left_per_tray",
+                "occupancy_kind": occupancy_kind, "slots": entries}, indent=2)+"\n")
+        if a.export_detections:
+            from full_frame_detection import frame_annotations
+            meta = json.loads(Path(output_path).with_suffix(".placements.json").read_text())
+            detections = frame_annotations(meta, a.detection_scope)
+            Path(output_path).with_suffix(".detections.json").write_text(json.dumps(detections, indent=2)+"\n")
+        if not a.segment_pairs:
+            print("wrote", output_path, flush=True)
 except BaseException:
     traceback.print_exc()
     # Preserve failure status even when Kit's fast shutdown terminates Python.

@@ -1,0 +1,5 @@
+{
+  "adapted_from": "csi_digital_twin_v1/tools/render_example.py",
+  "source_sha256": "9f50356ee63051fbfb06f212a2a7d554abd240aedba6064b445ee2e99ea532a5",
+  "note": "Independent sequence renderer snapshot. Existing renderer is unchanged."
+}

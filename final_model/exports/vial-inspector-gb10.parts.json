@@ -1,0 +1,17 @@
+{
+  "file": "vial-inspector-gb10",
+  "bytes": 2971240256,
+  "sha256": "36d550a6860c222952c501e41277a81d7cbc603bda8999580ae3b658c65e3717",
+  "parts": [
+    {
+      "file": "vial-inspector-gb10.part01",
+      "bytes": 1610612736,
+      "sha256": "b91b91c1d9e6666e4c6f2d8bd049ff70b58c8e71808d9d3da814a0b182d6acb3"
+    },
+    {
+      "file": "vial-inspector-gb10.part02",
+      "bytes": 1360627520,
+      "sha256": "f25c3376d77c85f05222518dc6ebe3f08dbcd34a71d02b7af0536a0e74497d29"
+    }
+  ]
+}

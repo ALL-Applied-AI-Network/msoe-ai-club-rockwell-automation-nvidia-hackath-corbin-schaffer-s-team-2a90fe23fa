@@ -1,0 +1,28 @@
+{
+  "stage": "FRESH_COMPARISON_MODEL_TRAINING",
+  "dataset": "final_model/dataset-v3",
+  "sequences": 9,
+  "frames": 288,
+  "training_started": true,
+  "learned_detector_available": false,
+  "video_pipeline": "TorchScript detector adapter or external predictions plus G-slot temporal state",
+  "validation": "final_model/dataset-v2/validation.json",
+  "train_defect_probability": 0.5,
+  "eval_defect_probability": 0.1,
+  "active_preparation": "final_model/preparation-v3/status.json",
+  "target_dataset": "final_model/dataset-v3",
+  "planned_sequences": {
+    "train": 60,
+    "validation": 15,
+    "test": 15
+  },
+  "training_status": "final_model/training-v3-003/run-status.json",
+  "training_log": "final_model/training-v3-003/train.log",
+  "exported_model": "final_model/models/rtdetr-v3.ts",
+  "export_report": "final_model/models/rtdetr-v3.json",
+  "video_smoke": "final_model/video-test-v3-001/summary.json",
+  "additional_epochs": null,
+  "resume_checkpoint_epoch": null,
+  "target_total_epochs": 50,
+  "training_seed": 43
+}

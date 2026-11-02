@@ -1,0 +1,26 @@
+{
+  "model": "Compression-aware RT-DETR ResNet50, final epoch 327",
+  "source_checkpoint_sha256": "632bf5b1997393e8ed41bff4f49a2a753d2247b654ad34b93689ec13fa811e31",
+  "compatibility": {
+    "architecture": "aarch64",
+    "gpu": "GB10 sm_121",
+    "python": "3.12",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0"
+  },
+  "sha256": {
+    "README.md": "162d46b06b78a481b30e00683053f9ec88f5eb62ff5f04974ec07bdfa8bc415f",
+    "bundle-test.json": "a83885007ed5845724411a2d86eff5a4ea6f9b523429719273a600dd66890a82",
+    "calibration.json": "7f4db31fc58065f77266ecf6eac60db39c15eaec30845010efc406ff29d72ed5",
+    "examples/ground-truth.json": "df6f152d467b671eadbc9224dbc1a1e0f61ce645395b8949df63294645911fbd",
+    "examples/test_fill_000.mp4": "38e3a5b067b7eb049ae6a31deb847651b202c02c3cdcf34b0a7bb93bb4fad06e",
+    "model/rtdetr-v3-006-final.json": "ffb45796e7a62190bf7870776d7765dd5c856cc726462acea1199fca87e321e1",
+    "model/rtdetr-v3-006-final.ops.so": "b83de8647800ec15a05496fecfca7e89bdaec24421206ff5c0210b10207e05c8",
+    "model/rtdetr-v3-006-final.ts": "76cc9c5779085a08a0542ce4a8603b0ea9e67e2bb9a3c838b8a77afd8e0da227",
+    "requirements.txt": "99d7c4bdc55c5d52d84ba2d52a9ec486e13ab37eede6a758d679158d174a4f74",
+    "run.py": "904e1f7fd0d31f0b71d799dd3850ca08484c0978c3ab3e52f5569ead40f82561",
+    "runtime/full_frame_detection.py": "b5d9d6386cc44d469254e3eb053b6a9353a510f5ed3f9bdb2948d10f2054e737",
+    "runtime/inspect_video.py": "c2bddcfcd0f8298d31039dad3c6a9550ba48306100046241df1f0fd42300fc8a",
+    "runtime/temporal.py": "e2062e88dac340c43b7dc2bc5eb329906fa3c24d4c1755813cd2e5aa3d1d1a3b"
+  }
+}

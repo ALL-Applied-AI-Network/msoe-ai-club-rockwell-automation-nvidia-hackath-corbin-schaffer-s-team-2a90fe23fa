@@ -1,0 +1,174 @@
+{
+  "format": "ONNX",
+  "execution_provider": "CPUExecutionProvider",
+  "input": {
+    "name": "image",
+    "shape": [
+      1,
+      3,
+      480,
+      640
+    ],
+    "dtype": "float32",
+    "color": "RGB"
+  },
+  "output": {
+    "name": "detections",
+    "shape": [
+      1,
+      300,
+      6
+    ],
+    "columns": [
+      "x0",
+      "y0",
+      "x1",
+      "y1",
+      "score",
+      "category_id"
+    ],
+    "category_zero": "unused; ignored by the runtime"
+  },
+  "source_checkpoint_sha256": "632bf5b1997393e8ed41bff4f49a2a753d2247b654ad34b93689ec13fa811e31",
+  "parity_method": "One-to-one, same-class box matching at confidence >=0.1; minimum IoU 0.95 and maximum score difference 0.03.",
+  "parity_check": [
+    {
+      "frame_index": 0,
+      "confidence_threshold_for_parity": 0.1,
+      "cpu_onnx_parity": {
+        "detections": 0,
+        "minimum_iou": 1.0,
+        "maximum_score_difference": 0.0
+      },
+      "gb10_onnx_parity": {
+        "detections": 0,
+        "minimum_iou": 1.0,
+        "maximum_score_difference": 0.0
+      },
+      "counts_at_runtime_default_0_25": {
+        "torch_cpu": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "onnx_cpu": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "gb10": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        }
+      },
+      "threshold_0_25_disagreements": []
+    },
+    {
+      "frame_index": 33,
+      "confidence_threshold_for_parity": 0.1,
+      "cpu_onnx_parity": {
+        "detections": 41,
+        "minimum_iou": 0.9999912977218628,
+        "maximum_score_difference": 5.856156349182129e-06
+      },
+      "gb10_onnx_parity": {
+        "detections": 41,
+        "minimum_iou": 0.9892917275428772,
+        "maximum_score_difference": 0.010588139295578003
+      },
+      "counts_at_runtime_default_0_25": {
+        "torch_cpu": {
+          "1": 29,
+          "2": 2,
+          "3": 1
+        },
+        "onnx_cpu": {
+          "1": 29,
+          "2": 2,
+          "3": 1
+        },
+        "gb10": {
+          "1": 29,
+          "2": 2,
+          "3": 1
+        }
+      },
+      "threshold_0_25_disagreements": []
+    },
+    {
+      "frame_index": 66,
+      "confidence_threshold_for_parity": 0.1,
+      "cpu_onnx_parity": {
+        "detections": 44,
+        "minimum_iou": 0.9999894499778748,
+        "maximum_score_difference": 9.2238187789917e-06
+      },
+      "gb10_onnx_parity": {
+        "detections": 44,
+        "minimum_iou": 0.9930406212806702,
+        "maximum_score_difference": 0.02051261067390442
+      },
+      "counts_at_runtime_default_0_25": {
+        "torch_cpu": {
+          "1": 30,
+          "2": 4,
+          "3": 2
+        },
+        "onnx_cpu": {
+          "1": 30,
+          "2": 4,
+          "3": 2
+        },
+        "gb10": {
+          "1": 30,
+          "2": 5,
+          "3": 2
+        }
+      },
+      "threshold_0_25_disagreements": [
+        {
+          "category_id": 2,
+          "counts": {
+            "torch_cpu": 4,
+            "onnx_cpu": 4,
+            "gb10": 5
+          }
+        }
+      ]
+    },
+    {
+      "frame_index": 99,
+      "confidence_threshold_for_parity": 0.1,
+      "cpu_onnx_parity": {
+        "detections": 45,
+        "minimum_iou": 0.9999868273735046,
+        "maximum_score_difference": 7.241964340209961e-06
+      },
+      "gb10_onnx_parity": {
+        "detections": 45,
+        "minimum_iou": 0.9957631230354309,
+        "maximum_score_difference": 0.008524566888809204
+      },
+      "counts_at_runtime_default_0_25": {
+        "torch_cpu": {
+          "1": 31,
+          "2": 2,
+          "3": 4
+        },
+        "onnx_cpu": {
+          "1": 31,
+          "2": 2,
+          "3": 4
+        },
+        "gb10": {
+          "1": 31,
+          "2": 2,
+          "3": 4
+        }
+      },
+      "threshold_0_25_disagreements": []
+    }
+  ],
+  "runtime_threshold_note": "CPU/GPU arithmetic can change detections close to the confidence threshold. See counts_at_runtime_default_0_25 and threshold_0_25_disagreements."
+}

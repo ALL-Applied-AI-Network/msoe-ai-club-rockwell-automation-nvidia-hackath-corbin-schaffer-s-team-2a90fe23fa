@@ -1,0 +1,430 @@
+{
+  "image_size": [
+    640,
+    480
+  ],
+  "scope": "G",
+  "slots": [
+    {
+      "slot_id": "G01",
+      "tray": "G",
+      "position": 1,
+      "center_native": [
+        369.6922679531041,
+        164.95265037597505
+      ],
+      "inspection_anchor_native": [
+        379.87120679967995,
+        161.17841242804178
+      ],
+      "normal_observations": 252
+    },
+    {
+      "slot_id": "G02",
+      "tray": "G",
+      "position": 2,
+      "center_native": [
+        370.6735059707807,
+        198.0299034689673
+      ],
+      "inspection_anchor_native": [
+        380.9310212019569,
+        197.77506279347506
+      ],
+      "normal_observations": 232
+    },
+    {
+      "slot_id": "G03",
+      "tray": "G",
+      "position": 3,
+      "center_native": [
+        371.6164643920946,
+        231.20956840241226
+      ],
+      "inspection_anchor_native": [
+        381.9333083448515,
+        234.51934886686013
+      ],
+      "normal_observations": 253
+    },
+    {
+      "slot_id": "G04",
+      "tray": "G",
+      "position": 4,
+      "center_native": [
+        372.51429215840915,
+        264.237271779419
+      ],
+      "inspection_anchor_native": [
+        382.8704331372764,
+        270.921035631724
+      ],
+      "normal_observations": 244
+    },
+    {
+      "slot_id": "G05",
+      "tray": "G",
+      "position": 5,
+      "center_native": [
+        373.3670755447169,
+        297.0982162069061
+      ],
+      "inspection_anchor_native": [
+        383.74268406295164,
+        307.08834509846764
+      ],
+      "normal_observations": 247
+    },
+    {
+      "slot_id": "G06",
+      "tray": "G",
+      "position": 6,
+      "center_native": [
+        341.8872102459323,
+        165.70193647350817
+      ],
+      "inspection_anchor_native": [
+        349.22524437357004,
+        161.9692747249845
+      ],
+      "normal_observations": 234
+    },
+    {
+      "slot_id": "G07",
+      "tray": "G",
+      "position": 7,
+      "center_native": [
+        342.92254805727106,
+        198.90324148643506
+      ],
+      "inspection_anchor_native": [
+        350.34961289275367,
+        198.7334092813524
+      ],
+      "normal_observations": 253
+    },
+    {
+      "slot_id": "G08",
+      "tray": "G",
+      "position": 8,
+      "center_native": [
+        343.94168297932015,
+        232.20587353273723
+      ],
+      "inspection_anchor_native": [
+        351.446063983376,
+        235.62818984831966
+      ],
+      "normal_observations": 236
+    },
+    {
+      "slot_id": "G09",
+      "tray": "G",
+      "position": 9,
+      "center_native": [
+        344.93696751136326,
+        265.3541140852027
+      ],
+      "inspection_anchor_native": [
+        352.5059952236079,
+        272.18320512520756
+      ],
+      "normal_observations": 241
+    },
+    {
+      "slot_id": "G10",
+      "tray": "G",
+      "position": 10,
+      "center_native": [
+        345.9081738311552,
+        298.3327307553687
+      ],
+      "inspection_anchor_native": [
+        353.52866199883476,
+        308.49930040463767
+      ],
+      "normal_observations": 239
+    },
+    {
+      "slot_id": "G11",
+      "tray": "G",
+      "position": 11,
+      "center_native": [
+        314.2842422346712,
+        166.4865335342305
+      ],
+      "inspection_anchor_native": [
+        318.76323378809195,
+        162.80754106446886
+      ],
+      "normal_observations": 242
+    },
+    {
+      "slot_id": "G12",
+      "tray": "G",
+      "position": 12,
+      "center_native": [
+        315.3732317418262,
+        199.79238733169868
+      ],
+      "inspection_anchor_native": [
+        319.95203581455814,
+        199.71372072615128
+      ],
+      "normal_observations": 235
+    },
+    {
+      "slot_id": "G13",
+      "tray": "G",
+      "position": 13,
+      "center_native": [
+        316.46817108242914,
+        233.19871017912155
+      ],
+      "inspection_anchor_native": [
+        321.14219025283955,
+        236.73258302500912
+      ],
+      "normal_observations": 245
+    },
+    {
+      "slot_id": "G14",
+      "tray": "G",
+      "position": 14,
+      "center_native": [
+        317.5606133021024,
+        266.4485396623004
+      ],
+      "inspection_anchor_native": [
+        322.324780020004,
+        273.4155583629091
+      ],
+      "normal_observations": 225
+    },
+    {
+      "slot_id": "G15",
+      "tray": "G",
+      "position": 15,
+      "center_native": [
+        318.65001070015904,
+        299.52617055862714
+      ],
+      "inspection_anchor_native": [
+        323.4980265818225,
+        309.8554419901527
+      ],
+      "normal_observations": 224
+    },
+    {
+      "slot_id": "G16",
+      "tray": "G",
+      "position": 16,
+      "center_native": [
+        286.1112527398144,
+        167.32911084877713
+      ],
+      "inspection_anchor_native": [
+        287.6437516775262,
+        163.71749758727265
+      ],
+      "normal_observations": 216
+    },
+    {
+      "slot_id": "G17",
+      "tray": "G",
+      "position": 17,
+      "center_native": [
+        287.2545813237389,
+        200.72261517798427
+      ],
+      "inspection_anchor_native": [
+        288.89771038647723,
+        200.74320296461315
+      ],
+      "normal_observations": 235
+    },
+    {
+      "slot_id": "G18",
+      "tray": "G",
+      "position": 18,
+      "center_native": [
+        288.4267547101402,
+        234.21594120427767
+      ],
+      "inspection_anchor_native": [
+        290.18394006276003,
+        237.86326972241153
+      ],
+      "normal_observations": 215
+    },
+    {
+      "slot_id": "G19",
+      "tray": "G",
+      "position": 19,
+      "center_native": [
+        289.6185018492621,
+        267.5509493028286
+      ],
+      "inspection_anchor_native": [
+        291.4917612553369,
+        274.6511582532475
+      ],
+      "normal_observations": 231
+    },
+    {
+      "slot_id": "G20",
+      "tray": "G",
+      "position": 20,
+      "center_native": [
+        290.8289387456265,
+        300.711408364185
+      ],
+      "inspection_anchor_native": [
+        292.8195728981942,
+        311.19330153984333
+      ],
+      "normal_observations": 221
+    },
+    {
+      "slot_id": "G21",
+      "tray": "G",
+      "position": 21,
+      "center_native": [
+        257.74554269626583,
+        168.22028205429913
+      ],
+      "inspection_anchor_native": [
+        256.0449691132107,
+        164.68916984027803
+      ],
+      "normal_observations": 213
+    },
+    {
+      "slot_id": "G22",
+      "tray": "G",
+      "position": 22,
+      "center_native": [
+        258.94276947882486,
+        201.6825098818728
+      ],
+      "inspection_anchor_native": [
+        257.36246360291295,
+        201.8091699687676
+      ],
+      "normal_observations": 209
+    },
+    {
+      "slot_id": "G23",
+      "tray": "G",
+      "position": 23,
+      "center_native": [
+        260.1922284287435,
+        235.2441458119601
+      ],
+      "inspection_anchor_native": [
+        258.7497922373575,
+        239.0033621256643
+      ],
+      "normal_observations": 197
+    },
+    {
+      "slot_id": "G24",
+      "tray": "G",
+      "position": 24,
+      "center_native": [
+        261.483811369405,
+        268.64595820505156
+      ],
+      "inspection_anchor_native": [
+        260.1985224574257,
+        275.87261814883055
+      ],
+      "normal_observations": 187
+    },
+    {
+      "slot_id": "G25",
+      "tray": "G",
+      "position": 25,
+      "center_native": [
+        262.81628404591504,
+        301.8711407864522
+      ],
+      "inspection_anchor_native": [
+        261.69837355148326,
+        312.4927978444083
+      ],
+      "normal_observations": 199
+    },
+    {
+      "slot_id": "G26",
+      "tray": "G",
+      "position": 26,
+      "center_native": [
+        229.40359659226488,
+        169.1541238505377
+      ],
+      "inspection_anchor_native": [
+        224.71647975136077,
+        165.71600958236223
+      ],
+      "normal_observations": 195
+    },
+    {
+      "slot_id": "G27",
+      "tray": "G",
+      "position": 27,
+      "center_native": [
+        230.65345838520653,
+        202.66523443809913
+      ],
+      "inspection_anchor_native": [
+        226.09630683840848,
+        202.90369432939067
+      ],
+      "normal_observations": 188
+    },
+    {
+      "slot_id": "G28",
+      "tray": "G",
+      "position": 28,
+      "center_native": [
+        231.97930525948257,
+        236.2755855308813
+      ],
+      "inspection_anchor_native": [
+        227.57359302122399,
+        240.1455017150286
+      ],
+      "normal_observations": 171
+    },
+    {
+      "slot_id": "G29",
+      "tray": "G",
+      "position": 29,
+      "center_native": [
+        233.37018610557448,
+        269.7249474451513
+      ],
+      "inspection_anchor_native": [
+        229.13606119919115,
+        277.06874236549584
+      ],
+      "normal_observations": 173
+    },
+    {
+      "slot_id": "G30",
+      "tray": "G",
+      "position": 30,
+      "center_native": [
+        234.82450322880948,
+        302.99589158773955
+      ],
+      "inspection_anchor_native": [
+        230.77619694169056,
+        313.74209489823306
+      ],
+      "normal_observations": 165
+    }
+  ],
+  "note": "Fixed synthetic camera; recalibrate for real camera."
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASSED",
+  "tested_utc": "2026-11-01T05:53:34.711016+00:00",
+  "test": "Archive extracted under /tmp; launcher run from /tmp, outside repository. Existing Python inference environment reused; fresh dependency installation not tested.",
+  "frames": 32,
+  "fps": 5,
+  "threshold": 0.25,
+  "export_parity_frames": 4,
+  "maximum_absolute_trace_errors": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "output_files": [
+    "inspection.mp4",
+    "frame-results.jsonl",
+    "summary.json"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "sha256": {
+    "README.md": "65c07d94d5870e2ec059b4a58d02b08e521c771ae48aab4f126c083153ca0538",
+    "calibration.json": "7f4db31fc58065f77266ecf6eac60db39c15eaec30845010efc406ff29d72ed5",
+    "model/model.json": "572c4f49e583a881e12e5929f78d1261ee0a371db3c5937ca151eabbfd1200df",
+    "model/rtdetr-v3-006-final.onnx": "4e1d17459c8140601517310b695521dadb601f363fce147bcaf62865fbd8122f",
+    "requirements.txt": "99d98f738a2510a88d0d6ef4e8f839e61cd27ac3cac70e71385d315ee8cf4389",
+    "run.py": "a5a3fe5606f377de37eb21a519d788168bf1e48bcc9344599ad9f69436607bdc",
+    "runtime/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runtime/full_frame_detection.py": "d4a6df0e95fbfa11e913dd8486decfec6a3ff97bcdde67ccae7acae27ea8f14b",
+    "runtime/temporal.py": "b4927f0b4980eb16d64d60725d54e04b1eec0e21fc422ca789a40ae408af88e0"
+  }
+}

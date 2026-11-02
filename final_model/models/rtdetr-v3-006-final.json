@@ -1,0 +1,51 @@
+{
+  "status": "exported_and_verified",
+  "checkpoint": "/home/hackathon9/msoe-ai-club-rockwell-automation-nvidia-hackath-corbin-schaffer-s-team-2a90fe23fa/final_model/training-v3-006/final_epoch_327.pth",
+  "checkpoint_sha256": "632bf5b1997393e8ed41bff4f49a2a753d2247b654ad34b93689ec13fa811e31",
+  "artifact": "/home/hackathon9/msoe-ai-club-rockwell-automation-nvidia-hackath-corbin-schaffer-s-team-2a90fe23fa/final_model/models/rtdetr-v3-006-final.ts",
+  "required_libraries": [
+    {
+      "file": "rtdetr-v3-006-final.ops.so",
+      "sha256": "b83de8647800ec15a05496fecfca7e89bdaec24421206ff5c0210b10207e05c8"
+    }
+  ],
+  "torch_version": "2.11.0",
+  "cuda_version": "13.0",
+  "disable_jit_optimization": true,
+  "supported_device": "cuda",
+  "input_shape": [
+    1,
+    3,
+    480,
+    640
+  ],
+  "input_dtype": "float32",
+  "input_color": "RGB",
+  "input_range": [
+    0,
+    1
+  ],
+  "network_size": [
+    640,
+    640
+  ],
+  "preprocessing": "antialiased bilinear resize; quantize to uint8 grid; scale [0,1]; no mean/std normalization",
+  "output": "Nx6: native-frame x0,y0,x1,y1,score,category_id",
+  "categories": {
+    "1": "vial",
+    "2": "tilted_cap",
+    "3": "missing_cap"
+  },
+  "parity_validation_frames": 4,
+  "maximum_absolute_trace_errors": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "notes": [
+    "No threshold filtering; inspect_video.py applies its runtime threshold.",
+    "Fixed 640x480 video, batch 1; CUDA extension/PyTorch ABI must match; real-camera calibration still required.",
+    "Resize approximates PIL training resize to within quantization; trace parity compares identical tensor preprocessing."
+  ]
+}
